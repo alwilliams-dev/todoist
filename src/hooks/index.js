@@ -75,3 +75,5 @@ export const useProjects = () => {
 
   return { projects, setProjects };
 };
+
+export { useAudio } from './useAudio';
