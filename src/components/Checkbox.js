@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { firebase } from '../firebase';
+import { useAudio } from '../hooks';
 
 export const Checkbox = ({ id, taskDesc }) => {
+  const { playDing } = useAudio();
+
   const archiveTask = () => {
     firebase.firestore().collection('tasks').doc(id).update({
       archived: true,
     });
+    playDing();
   };
 
   return (

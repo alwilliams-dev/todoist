@@ -16,6 +16,12 @@ jest.mock('../firebase', () => ({
   },
 }));
 
+jest.mock('../hooks', () => ({
+  useAudio: jest.fn(() => ({
+    playDing: jest.fn(),
+  })),
+}));
+
 describe('<Checkbox />', () => {
   describe('Success', () => {
     it('renders the task checkbox', () => {
