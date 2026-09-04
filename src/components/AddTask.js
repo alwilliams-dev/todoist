@@ -16,6 +16,7 @@ export const AddTask = ({
   const [task, setTask] = useState('');
   const [taskDate, setTaskDate] = useState('');
   const [project, setProject] = useState('');
+  const [priority, setPriority] = useState('4');
   const [showMain, setShowMain] = useState(shouldShowMain);
   const [showProjectOverlay, setShowProjectOverlay] = useState(false);
   const [showTaskDate, setShowTaskDate] = useState(false);
@@ -44,12 +45,14 @@ export const AddTask = ({
           task,
           date: collatedDate || taskDate,
           userId: 'jlIFXIwyAL3tzHMtzRbw',
+          priority: parseInt(priority, 10),
         })
         .then(() => {
           setTask('');
           setProject('');
           setShowMain('');
           setShowProjectOverlay(false);
+          setPriority('4');
         })
     );
   };
